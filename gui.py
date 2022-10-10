@@ -1,3 +1,11 @@
+#
+# gui.py
+# jata
+#
+# Created by Pascal Boehler on 10.10.2022
+# Copyright © 2020 Pascal Boehler. All rights reserved.
+#
+
 import time
 import pytermgui as ptg
 
