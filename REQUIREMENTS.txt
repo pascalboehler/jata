@@ -1,3 +1,4 @@
 tweepy
 npyscreen
 pytermgui
+python-dotenv
