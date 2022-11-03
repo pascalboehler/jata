@@ -9,6 +9,7 @@
 from tweet import Tweet
 from dotenv import load_dotenv
 from dotenv import dotenv_values
+import tweepy
 
 class TwitterApiHandler:
 
@@ -18,20 +19,21 @@ class TwitterApiHandler:
 
         api_conf = dotenv_values(dotenv_path=path_to_env)
 
-        api_key = api_conf["api_key"]
+        api_key = api_conf["api_key"] # euqal to consumer_key
         api_secret = api_conf["api_secret"]
-        bearer_token=api_conf["bearer_token"]
 
-        access_token=api_conf["access_token"]
-        access_token_secret = api_conf["access_token_secret"]
+        oauth1_user_handler = tweepy.OAuth1UserHandler(
+            api_key, api_secret, callback="oob"
+        )
 
-        print(api_key)
-        print(api_secret)
-        print(bearer_token)
+        print(oauth1_user_handler.get_authorization_url(signin_with_twitter=True))
+
+        verifier = input("Input PIN: ")
+
+        access_token, access_token_secret = oauth1_user_handler.get_access_token(verifier)
+
         print(access_token)
         print(access_token_secret)
-
-
 
         pass
 
