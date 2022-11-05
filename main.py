@@ -6,15 +6,9 @@
 # Copyright © 2020 Pascal Boehler. All rights reserved.
 #
 
-import tweepy
+from data_helpers.twitter_api_handler import TwitterApiHandler
 
-auth = tweepy.OAuth1UserHandler(
-    consumer_key, consumer_secret, access_token, access_token_secret
-)
+if __name__ == '__main__':
+    ApiHandler = TwitterApiHandler()
 
-api = tweepy.API(auth)
-
-pubic_tweets = api.home_timeline()
-
-for tweet in public_tweets:
-    print(tweet.text)
+    ApiHandler.getUserTimeline()
