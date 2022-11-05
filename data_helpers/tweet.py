@@ -9,16 +9,21 @@
 
 class Tweet:
 
+    tweet_id: int
+    tweet_content: str
     tweeter: str = ""
-    tweet_id: int = 120
-    tweet_content: str = "This is a tweet"
     like_count = 12
     retweet_count = 12
     comment_count = 12
 
 
-    def __init__():
-        print("Hi")
+    def __init__(self, tweet_id: int, tweet_content: str = "Blablabla", tweeter: str = "placeholder", like_count: int=12, retweet_count: int = 12, comment_count: int = 23):
+        self.tweet_id = tweet_id
+        self.tweet_content = tweet_content
+        self.tweeter = tweeter
+        self.like_count = like_count
+        self.retweet_count = retweet_count
+        self.comment_count = comment_count
 
     ###########
     # getters #
