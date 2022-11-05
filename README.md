@@ -1,2 +1,2 @@
 # jata
-Just another Twitter app (for the command line(
+Just another Twitter app (for the command line)
