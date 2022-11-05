@@ -6,7 +6,7 @@
 # Copyright © 2020 Pascal Boehler. All rights reserved.
 #
 
-from tweet import Tweet
+from .tweet import Tweet
 from dotenv import load_dotenv
 from dotenv import dotenv_values
 import tweepy
@@ -77,7 +77,24 @@ class TwitterApiHandler:
             access_token_secret=access_token_secret
         )
 
-        pass
+    def getUserTimeline(self) -> list[Tweet]:
+        response = self.tweepy_client.get_home_timeline()
+
+        timeline = response.data  # type: ignore
+        print(timeline[0]["id"])
+
+        tweets = []
+
+        # format
+        # id; text
+
+        for item in timeline:
+            curr_tweet = Tweet(item["id"], item["text"])
+            tweets.append(curr_tweet)
+
+        return tweets
+
 
 if __name__ == "__main__":
     handler = TwitterApiHandler()
+    handler.getUserTimeline()
