@@ -16,6 +16,12 @@ class TwitterApiHandler:
     tweepy_client: tweepy.Client
 
     def __init__(self):
+
+        self.oauthTwitter()
+
+        pass
+
+    def oauthTwitter(self):
         # load api login data from .env file
         path_to_env = "./twitter_api.env" # might need to be fixed later
         path_to_user_env = "./twitter_user_signin.env"
